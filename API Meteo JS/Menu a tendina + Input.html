@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prova SOA</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap" rel="stylesheet">
+  </head>
+
+  <style>
+    body {
+      background: rgb(115, 115, 115);
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+    }
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 50px;
+    }
+    h4, p {
+      margin-top: 3px;
+      margin-bottom: 5px;
+    }
+    div {
+      margin-bottom: 90px;
+    }
+    span.coords {
+      font-weight: 100;
+    }
+    span.meteo {
+      font-weight: 900;
+    }
+    img {
+      height: 100px;
+    }
+    div.risultato {
+      border: 1px solid black;
+      max-width: 400px;
+      margin: auto;
+    }
+  </style>
+
+  <body>
+    <h2>Servizio Meteo</h2>
+
+    <div>
+      <h4>Input manuale:</h4>
+      <form action="" method="">
+        <input type="text" id="citta" name="citta" placeholder="Citta">
+        <button type="button" id="inputButton" onclick="switchMetodoInput('input')">Cerca</button>
+      </form>
+    </div>
+
+    <div>
+      <h4>Input da menu:</h4>
+      <select name="stati" id="stati">
+
+      </select>
+      <button type="button" id="confermaStato" onclick="riempiMenuCitta()">Conferma</button>
+      <br>
+      <select name="cittaDaStati" id="cittaDaStati">
+
+      </select>
+      <button type="button" id="menuButton" onclick="switchMetodoInput('menu')">Cerca</button>
+    </div>
+
+    <div class="risultato" id="risultato">
+      <h4>Risultato:</h4>
+      <img id="icon" src="" />
+      <p id="meteo">Aspettando l'input...</p>
+    </div>
+
+    <script>
+      riempiMenuStati();
+
+      function riempiMenuStati() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var rispCompleta = JSON.parse(this.responseText);
+            var menu = document.getElementById("stati");
+            for (var i = 0; i < rispCompleta.data.length; i++) {
+              console.log(rispCompleta.data[i].country);
+              menu.add(new Option(rispCompleta.data[i].country));
+            }
+          }
+        };
+        var url = "https://countriesnow.space/api/v0.1/countries";
+        xhttp.open("GET", url, true);
+        xhttp.send();
+      }
+
+      function riempiMenuCitta() {
+        var stato = document.getElementById("stati").value;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var rispCompleta = JSON.parse(this.responseText);
+            var menu = document.getElementById("cittaDaStati");
+            for (var i = 0; i < rispCompleta.data.length; i++) {
+              if (rispCompleta.data[i].country == stato) {
+                for (var x = menu.options.length-1; x >= 0; x--) {
+                  menu.options[x] = null;
+                }
+                for (var j = 0; j < rispCompleta.data[i].cities.length; j++) {
+                  menu.add(new Option(rispCompleta.data[i].cities[j]));
+                }
+              }
+            }
+          }
+        };
+        var url = "https://countriesnow.space/api/v0.1/countries";
+        xhttp.open("GET", url, true);
+        xhttp.send();
+      }
+
+      function switchMetodoInput(id) {
+        if (id == "input") {
+          citta = document.getElementById('citta').value;
+        }
+        else if (id == "menu") {
+          citta = document.getElementById('cittaDaStati').value;
+        }
+        cercaMeteo(citta);
+      }
+
+      function cercaMeteo(citta) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var rispCompleta = JSON.parse(this.responseText);
+            var citta = rispCompleta.name;
+            var lon = rispCompleta.coord.lon;
+            var lat = rispCompleta.coord.lat
+            var stato = rispCompleta.sys.country;
+            var meteo = rispCompleta.weather[0].description;
+            var icon = rispCompleta.weather[0].icon;
+            document.getElementById('meteo').innerHTML = citta + ", " + stato + " <span class=\"coords\">(Lat: " + lat + ", Lon: " + lon + ")</span>" + ": <span class=\"meteo\">" + meteo + "</span>";
+            document.getElementById('risultato').style.border = "1px solid green";
+            document.getElementById('icon').src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+          }
+          if (this.status == 404) {
+            document.getElementById('meteo').innerHTML = "Citta inesistente";
+            document.getElementById('risultato').style.border = "1px solid red";
+            document.getElementById('icon').src = "https://www.twonav.com/media/wysiwyg/frontend/icon-404.png";
+          }
+        };
+        var url = "http://api.openweathermap.org/data/2.5/weather?q=" + citta + "&appid=738e4aa8d76ffccc614a3acdffa6675c&lang=it"
+        xhttp.open("GET", url, true);
+        xhttp.send();
+      }
+
+    </script>
+
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prova SOA</title>
+  </head>
+  <style>
+    body {
+      background: rgb(115, 115, 115);
+      text-align: center;
+    }
+  </style>
+  <body>
+    <h2>Servizio Meteo:</h2>
+    <form action="" method="">
+      <input type="text" id="citta" name="citta" placeholder="Citta">
+      <button type="button" onclick="cercaMeteo()">Cerca</button>
+    </form>
+    <img id="icon" src="" />
+    <p id="meteo">Città selezionata: nessuna</p>
+
+    <script type="text/javascript" src='http://maps.google.it/maps/api/js?sensor=false&libraries=places'></script>
+
+    <script>
+
+      function cercaMeteo() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var rispCompleta = JSON.parse(this.responseText);
+            var citta = rispCompleta.name;
+            var lon = rispCompleta.coord.lon;
+            var lat = rispCompleta.coord.lat
+            var stato = rispCompleta.sys.country;
+            var meteo = rispCompleta.weather[0].description;
+            var icon = rispCompleta.weather[0].icon;
+            document.getElementById('meteo').style.backgroundColor = "transparent";
+            document.getElementById('meteo').innerHTML = citta + ", " + stato + " (Lat: " + lat + ", Lon: " + lon + ")" + ": " + meteo;
+            document.getElementById('icon').src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+          }
+          if (this.status == 404) {
+            document.getElementById('meteo').innerHTML = "Citta inesistente";
+            document.getElementById('meteo').style.backgroundColor = "red";
+            document.getElementById('icon').src = "";
+          }
+        };
+        var url = "http://api.openweathermap.org/data/2.5/weather?q=" + document.getElementById('citta').value + "&appid=738e4aa8d76ffccc614a3acdffa6675c&lang=it"
+        xhttp.open("GET", url, true);
+        xhttp.send();
+      }
+    </script>
+
+    </body>
+</html>

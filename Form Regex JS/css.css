@@ -1,0 +1,85 @@
+body {
+  background: #888;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+main {
+  width: 290px;
+  max-width: 1000px;
+  text-align: left;
+  margin: auto;
+}
+h1 {
+  text-align: center;
+}
+h6 {
+  text-align: center;
+  font-weight: 400;
+}
+label {
+  font-weight: 500;
+}
+img {
+  height: 20px;
+  margin-bottom: -5px;
+}
+div.info {
+  position: absolute;
+  display: inline-block;
+  border-radius: 4px;
+  margin: 8px;
+  max-width: 250px;
+}
+small.text {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
+  padding-right: 5px;
+}
+.info:hover small {
+  visibility: visible;
+  opacity: 1;
+}
+.info:hover {
+  background: white;
+}
+input.inputForm{
+  width: 250px;
+  height: 30px;
+  border-radius: 3px;
+  margin-top: 3px;
+}
+input.inputForm:invalid {
+  border: 2px solid #f00;
+}
+input.inputForm:valid {
+  border: 2px solid #0f0;
+}
+input:focus {
+  border: none;
+  outline: none;
+}
+input:focus + div > small {
+  visibility: visible;
+  opacity: 1;
+}
+input:focus + div.info {
+  background: white;
+}
+.button {
+  width: 100px;
+  height: 30px;
+  margin: auto;
+}
+form {
+  text-align: center;
+}
+section {
+  text-align: left;
+}
+p.errore {
+  visibility: hidden;
+}
+input.invalid {
+  border: 2px solid #f00 !important;
+}

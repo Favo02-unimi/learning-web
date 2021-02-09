@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Negozio di dischi</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <p id="info1" class="info">Lista dischi disponibili in negozio:</p>
+    <p id="info2" class="info">Click sul disco per più info</p>
+    <p id="errore"></p>
+    <p id="preview" class="hidden">Preview...</p>
+    
+    <script>
+        function cercaDischi() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    parser = new DOMParser();
+                    xmlDoc = parser.parseFromString(this.responseText,"text/xml");
+                    creaPreview(xmlDoc);
+                }
+                if (this.status == 429) {
+                    console.log("429");
+                    document.getElementById("info1").innerHTML = "";
+                    document.getElementById("info2").innerHTML = "";
+                    document.getElementById("errore").innerHTML = "Errore 429 - Troppe richieste";
+                }
+            };
+            var url = "https://negozio-di-dischi.free.beeceptor.com/dischi";
+            var urlBackup = "https://negozio-di-dischi-backup.free.beeceptor.com/dischi";
+            //in caso vada in too many request e devo provarlo
+            xhttp.open("GET", urlBackup, true);
+            xhttp.send();
+        }
+        cercaDischi();
+
+        function creaPreview(xmlDoc) {
+            var numAlbum = xmlDoc.getElementsByTagName("disco").length;
+            //console.log("NUMALBUM", numAlbum);
+
+            var body = document.body;
+            var table = document.createElement("table");
+            var tr;
+            var td;
+            var autore;
+            var titolo;
+
+            for (var i = 0; i < numAlbum; i++) {
+                autore = xmlDoc.getElementsByTagName("autore")[i].childNodes[0].nodeValue;
+                console.log(xmlDoc.getElementsByTagName("autore")[i].childNodes[0]);
+                console.log(xmlDoc.getElementsByTagName("autore")[i].childNodes[0].nodeValue);
+                titolo = xmlDoc.getElementsByTagName("titolo")[i].childNodes[0].nodeValue;
+                //console.log(autore, titolo);
+
+                tr = document.createElement("tr");
+                tr.setAttribute("indice", i);
+                var string = "apriTabella(" + i + ", true)";
+                tr.setAttribute("onmouseover", string);
+                string = "apriTabella(" + i + ", false)";
+                tr.setAttribute("onclick", string);
+
+
+                
+
+                td = document.createElement("td");
+                td.appendChild(document.createTextNode(autore));
+                tr.appendChild(td);
+                //console.log(tr);
+
+                td = document.createElement("td");
+                td.appendChild(document.createTextNode(titolo));
+                tr.appendChild(td);
+                //console.log(td);
+
+                table.appendChild(tr);
+            }
+            body.appendChild(table);
+        }
+
+        function apriTabella(i, hover) {
+            if (hover) {
+                document.getElementById("preview").classList.remove("hidden");
+            }
+            else {
+                document.getElementById("preview").classList.add("hidden");
+            }
+            if (document.getElementById("tempTable") != null) {
+                document.getElementById("tempTable").remove();
+            }
+            //console.log(i);
+            for (var x = 0; x < 3; x++) {
+                if (!hover) {
+                    document.getElementsByTagName("tr")[x].classList.remove("active");
+                }
+            }
+            if (!hover) {
+                document.getElementsByTagName("tr")[i].classList.add("active");
+            }
+            var body = document.body;
+            var table = document.createElement("table");
+            table.setAttribute("id", "tempTable");
+            if (hover) {
+                table.style.opacity = 0.4;
+            } 
+            else {
+                table.style.opacity = 1;
+
+            }
+            var tr;
+            var td;
+
+            var autore = xmlDoc.getElementsByTagName("autore")[i].childNodes[0].nodeValue;
+            var titolo = xmlDoc.getElementsByTagName("titolo")[i].childNodes[0].nodeValue;
+            var anno = xmlDoc.getElementsByTagName("anno")[i].childNodes[0].nodeValue;
+            var etichetta = xmlDoc.getElementsByTagName("etichetta")[i].childNodes[0].nodeValue;
+
+            var arrayTitolo = ["Autore", "Titolo", "Anno", "Etichetta"]
+            var array = [autore, titolo, anno, etichetta];
+
+            for (var j = 0; j < 4; j++) {
+                tr = document.createElement("tr");               
+
+                td = document.createElement("td");
+                td.appendChild(document.createTextNode(arrayTitolo[j]));
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.appendChild(document.createTextNode(array[j]));
+                tr.appendChild(td);
+
+                //console.log(tr);
+                table.appendChild(tr);
+            }
+            
+            var numTracce = parseInt(xmlDoc.getElementsByTagName("canzoni")[i].getAttribute("tracce"));
+            for (var j = 0; j < numTracce; j++) {
+                tr = document.createElement("tr");
+                
+                td = document.createElement("td");
+                td.appendChild(document.createTextNode("Traccia " + (j+1)));
+                tr.appendChild(td);
+                
+                td = document.createElement("td");
+                var canzoni = xmlDoc.getElementsByTagName("canzoni")[i];
+                var canzone = canzoni.getElementsByTagName("canzone")[j];
+                
+                //l'elemento canzone è <canzone> testo </canzone>
+                //console.log(canzone);
+                //canzone.nodeValue è null
+                //console.log(canzone.nodeValue);
+                //canzone.childNodes[0].nodeValue è solo il testo interno al tag
+                //console.log(canzone.childNodes[0].nodeValue);
+                
+                td.appendChild(document.createTextNode(canzone.childNodes[0].nodeValue));
+                tr.appendChild(td);
+                
+                
+                table.appendChild(tr); 
+                
+            }
+            body.appendChild(table);
+            
+        }
+        
+    </script>
+</body>
+</html>

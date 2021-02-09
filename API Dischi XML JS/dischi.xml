@@ -1,0 +1,68 @@
+<negozioDiDischi>
+
+    <disco>
+        <titolo>Nessuno è solo</titolo>
+        <autore>Tiziano Ferro</autore>
+        <anno>2006</anno>
+        <genere>pop</genere>
+        <etichetta>EMI</etichetta>
+        <canzoni tracce="11">
+            <canzone>Tarantola d'Africa</canzone>
+            <canzone>Ti scatterò una foto</canzone>
+            <canzone>Ed ero contentissimo</canzone>
+            <canzone>Stop! Dimentica</canzone>
+            <canzone>E fuori è buio</canzone>
+            <canzone>Salutandotiaffogo</canzone>
+            <canzone>E Raffaella è mia</canzone>
+            <canzone>La paura che...</canzone>
+            <canzone>Bacinao le donne</canzone>
+            <canzone>Già ti guarda Alice</canzone>
+            <canzone>Mio fratello</canzone>
+        </canzoni>
+    </disco>
+
+    <disco>
+        <titolo>Maggese</titolo>
+        <autore>Cesare Cremonini</autore>
+        <anno>2005</anno>
+        <genere>pop</genere>
+        <etichetta>Warner Music Italy</etichetta>
+        <canzoni tracce="14">
+            <canzone>Maggese</canzone>
+            <canzone>Le tue parole fanno male</canzone>
+            <canzone>Ancora un po'</canzone>
+            <canzone>Marmellata #25</canzone>
+            <canzone>Sardegna</canzone>
+            <canzone>Stavo pensando che Dio...</canzone>
+            <canzone>Quando non sai</canzone>
+            <canzone>Gongi-Boy</canzone>
+            <canzone>Amami</canzone>
+            <canzone>Momento silenzioso</canzone>
+            <canzone>Carillon</canzone>
+            <canzone>Linda &amp; Moreno Parte I</canzone>
+            <canzone>Linda &amp; Moreno Parte II</canzone>
+            <canzone>Linda &amp; Moreno Parte III</canzone>
+        </canzoni>
+    </disco>
+
+    <disco>
+        <titolo>Sotto il segno dei pesci</titolo>
+        <autore>Antonello Venditti</autore>
+        <anno>1978</anno>
+        <genere>Piano rock</genere>
+        <etichetta>Philips</etichetta>
+        <canzoni tracce = "8">
+            <canzone>Sotto il segno dei pesci</canzone>
+            <canzone>Francesco</canzone>
+            <canzone>Bomba o non bomba</canzone>
+            <canzone>Chen il cinese</canzone>
+            <canzone>Sara</canzone>
+            <canzone>Il telegiornale</canzone>
+            <canzone>Giulia</canzone>
+            <canzone>L'uomo falco</canzone>
+        </canzoni>
+    </disco>
+
+
+
+</negozioDiDischi>

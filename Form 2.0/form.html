@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+    <h1>FormSuperAccattivante.com</h1>
+    <div id="contenitore">
+        <form action="invio.php" method="GET">
+            <label for="casellaDiTesto" id="labelCasellaDiTesto">Testo:</label>
+            <input type="text" name="casellaDiTesto" id="casellaDiTesto" placeholder="Casella di testo">
+            <input type="submit" value="INVIA" class="pulsante">
+            <input type="reset" value="RESET" class="pulsante">
+            <input type="button" value="INERTE" class="pulsante">
+            <div id="divFile">
+                <label for="file" id="labelFile">Scegli il file da inviare: </label>
+                <input type="file" name="file" id="file">
+            </div>
+            <input type="checkbox" name="checkbox1" id="checkbox1">
+            <label for="checkbox1">Checkbox1</label>
+            <input type="checkbox" name="checkbox2" id="checkbox1">
+            <label for="checkbox1">Checkbox2</label>
+            <select name="scelte" id="dropdown">
+                <option value="Scelta1">Scelta a1</option>
+                <option value="Scelta2">Scelta a2</option>
+                <option value="Scelta3">Scelta a3</option>
+                <option value="Scelta4">Scelta a4</option>
+            </select>
+            <div id="divRadio">
+                <input type="radio" name="radio1" id="radio1" class="radio">
+                <label for="radio1">RadioButton1</label>
+                <input type="radio" name="radio2" id="radio2" class="radio">
+                <label for="radio2">RadioButton2</label>
+            </div>
+            <textarea name="textArea" id="textArea">Area di testo</textarea>
+            <select name="opzioni" size="5" id="listBox">
+                <option value="titolo">LIST BOX SCELTA UNICA</option>
+                <option value="scelta1">Scelta 1</option>
+                <option value="scelta2">Scelta 2</option>
+                <option value="scelta3">Scelta 3</option>
+                <option value="scelta4">Scelta 4</option>
+                <option value="scelta5">Scelta 5</option>
+            </select>
+        </form>
+    </div>
+</body>
+</html>

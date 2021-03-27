@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>FastTesting</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/eb793f993c.js" crossorigin="anonymous"></script>
+    <script src="js.js"></script>
+
+
+    <div class="background">
+        <div class="blur"></div>
+    </div>
+    <div class="content">
+        <header>
+            <nav>
+                <ul class='navmenu'>
+                    <li><a class="active" id="gotoHome" onclick="scrolla(this)">Home</a></li>
+                    <li><a id="gotoOfferte" onclick="scrolla(this)">Cosa offriamo</a></li>
+                    <li><a id="gotoListino" onclick="scrolla(this)">Listino</a></li>
+                    <li><a id="gotoChisiamo" onclick="scrolla(this)">Chi siamo</a></li>
+
+                    <li class='left'><a class="login" href="login.html">Inzia ora!</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+
+            <div id="home">
+                <h1 class="titoloLogo">fastTesting();</h1>
+
+                <h3 class="descrizioneLogo">Basta sprecare tempo prezioso a testare il tuo prodotto! Fallo testare a noi, semplice, veloce ed efficace, proprio come richiamare una funzione!</h3>
+            </div>
+
+
+            <br>
+            <div id="descrizione">
+                <p class="testo">
+                    Ti sei stancato di <span class="evid">testare</span> ogni cosa? <br><br>
+                    Ti sei stufato di stare ore e ore davanti al computer ad immaginarti come i tuoi clienti <span class="evid">interpreterrano</span> il pulsante? <br><br>
+                    Il nostro servizio <span class="evid">fa per te</span>, registrati e contatta uno dei nostri tester e vedrai che la tua vita cambierà.
+                </p>
+
+                <h2 id="offerte" class="sottotitolo">Cosa offriamo</h2>
+                <p class="testo">
+                    Puoi scegliere tra diversi <span class="evid">servizi</span> in base alla tua esigenza: <br><br>
+
+                    <u><b><span class="evid">Test grafico:</span></b></u><br>
+                    Non sei sicuro di quanto sia ben riuscita la parte <span class="evid">grafica</span> del tuo progetto? Non preoccuparti, in questa sezione troverai i nostri dipendenti pronti ad aiutarti sull’aspetto grafico del tuo progetto. <br><br>
+                    
+                    <u><b><span class="evid">Test funzionale:</span></b></u><br>
+                    Come interpreteranno questo pulsante? Capiranno che per prenotare bisogna prima compiere quest'azione? Rivolgiti a noi, in questa sezione troverai i nostri consulenti specializzati pronti ad testare ogni <span class="evid">funzionalità</span> del tuo progetto. <br>
+                    Riscontreremo problemi di usabilità e di logica!<br><br>
+
+                    <u><b><span class="evid">Test completo:</span></b></u><br>
+                    Vuoi che il tuo progetto sia perfetto sotto ogni punto di vista? Ottimo, in questa sezione troverai i nostri tester pronti a testare dal primo carattere all'ultimo il tuo progetto. Questo test <span class="evid">completo</span> comprende sia il test grafico che il test funzionale.
+                </p>
+
+                <h2 id="listino" class="sottotitolo">Listino</h2>
+                
+                <div id="prezzi">
+                    <div class="columns">
+                        <ul class="price">
+                            <li class="header">Base</li>
+                            <li class="grey">9,99 € cad.</li>
+                            <li>1 Progetto</li>
+                            <li>1 Test (grafico o funzionale)</li>
+                            <li>Report finale</li>
+                            <li>Disponibilità 7/7</li>
+                            <li class="grey"><a href="login.html" class="button">Inizia ora!</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="columns">
+                        <ul class="price">
+                            <li class="header" style="background-color:rgb(0, 195, 255)">MultiTest</li>
+                            <li class="grey">19,99 € cad.</li>
+                            <li>1 Progetto</li>
+                            <li>Test completo</li>
+                            <li>Report finale</li>
+                            <li>Disponibilità 7/7</li>
+                            <li class="grey"><a href="login.html" class="button">Inizia ora!</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="columns">
+                        <ul class="price">
+                            <li class="header">Business</li>
+                            <li class="grey">49,99 € / anno</li>
+                            <li>Progetti illimitati</li>
+                            <li>Test completo</li>
+                            <li>Report finale</li>
+                            <li>Disponibilità 7/7</li>
+                            <li class="grey"><a href="login.html" class="button">Inizia ora!</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+        
+
+                <h2 id="chisiamo" class="sottotitolo">Chi Siamo</h2>
+                <p class="testo">
+                    Fastest è composto da un team di <span class="evid">professionisti</span> con sede a Milano, in Italia, che lavora nel settore dell’analisi e nell’ottimizzazione di un prodotto informatico, che sia un sito web, una webapp on un'applicazione desktop o mobile. <br> <br>
+                    Fastest è nato dall'idea di <span class="evid">5 ragazzi</span>, che testavano e aiutavano a migliorare i programmi dei loro amici nel periodo in cui frequentavano la scuola. <br> <br>
+                    Da allora centinaia di aziende e privati hanno deciso di affidarsi a <span class="evid">Fastest</span> come strumento per testare i loro siti web, app o prototipi, e grazie al nostro team, che sarà sempre in grado di risolvere qualunque errore presente nel tuo progetto, o di apportare modifiche al fine di poter migliorare l’esperienza per gli utenti che visualizzeranno il tuo sito. I tuoi progetti con noi sono <span class="evid">“in una botte di ferro”</span>.
+                </p>
+
+            </div>
+        </main>
+        <footer>
+            <div id="sezioni">
+                <ul>
+                    <li><a id="gotoHome" onclick="scrolla(this)">Home</a></li>
+                    <li><a id="gotoOfferte" onclick="scrolla(this)">Cosa offriamo</a></li>
+                    <li><a id="gotoListino" onclick="scrolla(this)">Listino</a></li>
+                    <li><a id="gotoChisiamo" onclick="scrolla(this)">Chi siamo</a></li>
+                </ul>
+            </div>
+
+            <div id="social">
+                <a href="https://twitter.com" class="fa fa-twitter"></a>
+                <a href="https://facebook.com" class="fa fa-facebook"></a>
+                <a href="https://youtube.com" class="fa fa-youtube"></a>
+                <a href="https://instagram.com" class="fa fa-instagram"></a>
+            </div>
+
+            <div id="iniziaOra">
+                <button onclick="location.href = 'login.html';">INIZIA ORA</button>
+                <h4>Facile, semplice ed efficace!</h4>
+            </div>
+
+
+            <h5>fastTesting.com - Copyright 2021</h5>
+
+        </footer>
+
+
+
+    </div>     
+</body>
+</html>

@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-image: url(src/pattern3.png);
+}
+.background {
+    background-image: url(src/background2.jpg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+.blur {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    height: 100%;
+    width: 100%;
+}
+.content {
+    position: absolute;
+    top: 0;
+    margin: 1%;
+    margin-top: 15px;
+    width: 98%;
+}
+ul.navmenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    font-family: 'Nunito Sans', sans-serif;
+    transition: all 0.4s;
+}
+ul.navmenu.superScroll {
+    background-color: #111;
+    transition: all 0.4s;
+}
+ul.navmenu li {
+    float: left;
+}
+ul.navmenu li.left {
+    float:right;
+    margin-right: 15px;
+}
+ul.navmenu li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+li a:hover {
+    cursor: pointer;
+}
+ul.navmenu.superScroll li a {
+    color: white;
+    transition: all 0.4s;
+}
+ul.navmenu li:first-child {
+    margin-left: 15px;
+}
+ul.navmenu li a:hover {
+    background-image: linear-gradient(to bottom, rgb(165, 228, 247, 0.2), rgb(165, 228, 247, 0.7));
+    transition: all 0.4s;
+}
+.active {
+    background-image: linear-gradient(to top, rgb(0, 195, 255, 0.3), rgb(0, 195, 255, 0.9));
+    padding-bottom: 12px;
+    border-bottom: 2px solid black;
+    letter-spacing: 2px;
+    transition: all 0.4s;
+}
+ul.navmenu a:hover.active {
+    background-image: linear-gradient(to top, rgb(0, 195, 255, 0.3), rgb(0, 195, 255, 0.9));
+}
+header {
+    position: fixed;
+    width: 98%;
+}
+.login {
+    background-image: linear-gradient(to top, rgb(0, 195, 255, 0.3), rgb(0, 195, 255, 0.9));
+    padding-bottom: 12px;
+    border-bottom: 2px solid black;
+}
+#home {
+    margin: auto;
+    width: 800px;
+    margin-top: 300px;
+    margin-bottom: 400px;
+}
+h1.titoloLogo {
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 100px;
+    text-align: center;
+    transition: font-size 0.3s, color 0.3s, background-color 0.2s;
+}
+h1.titoloLogo.scroll {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    font-size: 50px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 0 10px 0px 15px;
+    border-bottom: 2px solid white;
+    transition: font-size 0.3s, color 0.3s, background-color 0.4s;
+}
+h1.titoloLogo.superScroll {
+    background-color: #111;
+    color: white;
+    transition: font-size 0.3s, color 0.3s, background-color 0.4s;
+}
+h3.descrizioneLogo {
+    margin-top: 15px;
+    text-align: center;
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 30px;
+}
+#descrizione {
+    color: black;
+}
+#descrizione.scroll {
+    padding-top: 146px;
+}
+footer {
+    margin-top: 100px;
+    background-color: black;
+    height: 200px;
+    width: 100%;
+    margin-bottom: 15px;
+    position: relative;
+}
+#sezioni {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    height: 75%;
+    position: relative;
+}
+#sezioni ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#sezioni li a {
+    font-family: 'Nunito Sans', sans-serif;
+    color: rgb(0, 195, 255);
+    font-weight: 700;
+    transition: all 0.4s;
+
+}
+#sezioni li a:hover {
+    color: white;
+    letter-spacing: 2px;
+    transition: all 0.4s;
+}
+#social {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+}
+#social .fa {
+    padding: 10px;
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+#social .fa:hover {
+    opacity: 0.7;
+}
+#social .fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+#social .fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+#social .fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+#social .fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+#iniziaOra {
+    float: right;
+    width: 30%;
+    height: 75%;
+    position: relative;
+}
+#iniziaOra button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: auto;
+    display: block;
+    margin-top: 30px;
+    border-radius: 5px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to bottom, rgb(0, 195, 255, 0.5), rgb(0, 195, 255));
+}
+#iniziaOra button:hover {
+    background-image: linear-gradient(to top, rgb(0, 195, 255, 0.5), rgb(0, 195, 255));
+}
+#iniziaOra h4 {
+    text-align: center;
+    color: white;
+    height: 25%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+footer h5 {
+    text-align: center;
+    color: white;
+    height: 25%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+}
+
+div#contenitoreForm {
+    width: 100%;
+    text-align: center;
+}
+div#form {
+    border: 1px solid rgb(18, 18, 18, 0.2);
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: inline-block;
+    width: 40%;
+    margin: auto;
+    margin-top: 180px;
+}
+div#form * {
+    font-family: 'Nunito Sans', sans-serif;
+}
+input[type=text], select, input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit] {
+    width: 100%;
+    background-color: rgb(0, 195, 255);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: rgb(0, 195, 255);
+}
+
+
+div#descrizione {
+    text-align: center;
+}
+.sottotitolo {
+    margin-top: 70px;
+    display: inline-block;
+    font-size: 50px;
+    border-bottom: 15px solid rgb(0, 195, 255, 0.3);
+    height: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+.testo {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 25px;
+    max-width: 800px;
+    margin: auto;
+}
+.testo .evid {
+    color: rgb(0, 195, 255);
+}
+
+
+
+div#prezzi {
+    width: 80%;
+    height: 500px;
+    margin: auto;
+    margin-top: 3px;
+}
+div#prezzi * {
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+.columns {
+    float: left;
+    width: 33.3%;
+    padding: 8px;
+}
+.price {
+    background-color: white;
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+.price:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+.price .header {
+    background-color: #111;
+    color: white;
+    font-size: 25px;
+}
+.price li {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+}
+.price .grey {
+    background-color: #eee;
+    font-size: 20px;
+}
+.button {
+    background-color: rgb(0, 195, 255);
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    transition: border 0.4s;
+
+}
+.button:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    transition: border 0.4s;
+}
